@@ -17,7 +17,9 @@ var fbMsngr = require('fb-msngr')({
 //Handle the receipt of text messages
 fbMsngr.onTextReceived(function(uid, text) {
 	console.log('text ' + text + ' - id '+ uid);
-   //fbMsngr.sendTextMessage(uid, text, null);
+   fbMsngr.sendTextMessage(uid, text, function(err, id, mid){
+      console.log('mensaje enviado');
+   });
    fbMsngr.getProfile(uid, function(err, first_name, last_name, profile_pic) {
 	     console.log('name '+ first_name + ' ' + last_name + ' pic '+profile_pic);
    });
@@ -35,6 +37,7 @@ router.get('/webhook/', fbMsngr.verify('La verificacion fallo'));
 router.post('/webhook/', function(req, res) {
 	fbMsngr.handle(req.body);
 	res.sendStatus(200);
+   res.end();
 });
 
 module.exports = router;
