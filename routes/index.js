@@ -23,10 +23,13 @@ fbMsngr.onTextReceived(function(uid, text) {
    });
 });
 
+fbMsngr.onMediaReceived(function(id, attachments) {
+	console.log('se recibe un mensaje de media');
+});
 
 
 //Handle verification with the build in middleware
-router.get('/webhook/', fbMsngr.verify('Failed to verify'));
+router.get('/webhook/', fbMsngr.verify('La verificacion fallo'));
 
 //Handle the received message
 router.post('/webhook/', function(req, res) {
