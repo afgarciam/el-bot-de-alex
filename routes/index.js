@@ -27,7 +27,7 @@ function logEnvio(data) {
 router.get('/webhook/', fbMsngr.verify('Failed to verify'));
 
 //Handle the received message
-router.post('/webook/', function(req, res) {
+router.post('/webhook/', function(req, res) {
 	fbMsngr.handle(req.body);
 	res.sendStatus(200);
 });
