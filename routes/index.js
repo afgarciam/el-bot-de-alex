@@ -20,6 +20,9 @@ fbMsngr.onTextReceived(function(uid, text) {
    // fbMsngr.sendTextMessage(uid, text, function(err, id, mid) {
    //    console.log('Se envio el mensaje ' + err);
    // });
+   fbMsngr.getProfile(uid, function(err, first_name, last_name, profile_pic) {
+	     console.log('name '+ first_name + ' ' + last_name + ' pic '+profile_pic);
+   });
 });
 
 
