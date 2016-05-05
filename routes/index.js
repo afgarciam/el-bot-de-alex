@@ -20,8 +20,8 @@ fbMsngr.onTextReceived(function(uid, text) {
    fbMsngr.sendTextMessage(uid, text, logEnvio);
 });
 
-function logEnvio(data) {
-   console.log('Se envio el mensaje ' + data);
+function logEnvio(err, id, mid) {
+   console.log('Se envio el mensaje ' + err);
 }
 
 //Handle verification with the build in middleware
