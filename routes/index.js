@@ -17,9 +17,7 @@ var fbMsngr = require('fb-msngr')({
 //Handle the receipt of text messages
 fbMsngr.onTextReceived(function(uid, text) {
 	console.log('text ' + text + ' - id '+ uid);
-   fbMsngr.sendTextMessage(uid, text, function(err, uid, mid) {
-      console.log('Se envio el mensaje ' + err);
-   });
+   fbMsngr.sendTextMessage(uid, text, null);
    fbMsngr.getProfile(uid, function(err, first_name, last_name, profile_pic) {
 	     console.log('name '+ first_name + ' ' + last_name + ' pic '+profile_pic);
    });
