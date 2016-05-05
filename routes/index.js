@@ -29,6 +29,9 @@ fbMsngr.onMediaReceived(function(id, attachments) {
 	console.log('se recibe un mensaje de media');
 });
 
+fbMsngr.onDelivered(function(id, mid) {
+	console.log('mensaje entregado'); 
+});
 
 //Handle verification with the build in middleware
 router.get('/webhook/', fbMsngr.verify('La verificacion fallo'));
