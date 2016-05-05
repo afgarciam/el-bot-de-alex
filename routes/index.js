@@ -16,13 +16,13 @@ var fbMsngr = require('fb-msngr')({
 
 //Handle the receipt of text messages
 fbMsngr.onTextReceived(function(uid, text) {
-	console.log('text ' + text + ' - id '+ uid);
-   fbMsngr.sendTextMessage(uid, text, logEnvio);
+	//console.log('text ' + text + ' - id '+ uid);
+   fbMsngr.sendTextMessage(uid, text, function(err, id, mid) {
+      console.log('Se envio el mensaje ' + err);
+   });
 });
 
-function logEnvio(err, id, mid) {
-   console.log('Se envio el mensaje ' + err);
-}
+
 
 //Handle verification with the build in middleware
 router.get('/webhook/', fbMsngr.verify('Failed to verify'));
