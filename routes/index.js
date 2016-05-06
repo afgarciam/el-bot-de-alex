@@ -3,7 +3,6 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  console.log('get render');
   res.render('index', { title: 'Express' });
 });
 
@@ -17,12 +16,21 @@ var fbMsngr = require('fb-msngr')({
 //Handle the receipt of text messages
 fbMsngr.onTextReceived(function(uid, text) {
 	console.log('text ' + text + ' - id '+ uid);
-   fbMsngr.sendTextMessage(uid, text, function(err, id, mid){
-      console.log('mensaje enviado');
-   });
-   fbMsngr.getProfile(uid, function(err, first_name, last_name, profile_pic) {
-	     console.log('name '+ first_name + ' ' + last_name + ' pic '+profile_pic);
-   });
+
+   if(text.trim().toUpperCase() == "HOLA"){
+      fbMsngr.getProfile(uid, function(err, first_name, last_name, profile_pic) {
+         var textSend = 'Hola '+ first_name +' '+ last_name +'!';
+         fbMsngr.sendTextMessage(uid, textSend, function(err, id, mid){
+               console.log('mensaje enviado '+ textSend);
+         });
+      });
+   }
+   // fbMsngr.sendTextMessage(uid, text, function(err, id, mid){
+   //    console.log('mensaje enviado');
+   // });
+   // fbMsngr.getProfile(uid, function(err, first_name, last_name, profile_pic) {
+	//      console.log('name '+ first_name + ' ' + last_name + ' pic '+profile_pic);
+   // });
 });
 
 fbMsngr.onMediaReceived(function(id, attachments) {
@@ -30,7 +38,7 @@ fbMsngr.onMediaReceived(function(id, attachments) {
 });
 
 fbMsngr.onDelivered(function(id, mid) {
-	console.log('mensaje entregado'); 
+	console.log('mensaje entregado');
 });
 
 //Handle verification with the build in middleware
