@@ -30,15 +30,15 @@ fbMsngr.onTextReceived(function(uid, text) {
       });
    }else if(text === "TARJETA"){
       var bubbles = [
-         fbMsngr.buildBubble('Burbuja 1','https://el-bot-de-alex.herokuapp.com/', 'http://lorempixel.com/400/200/', 'imagen 1 desde lorem pixel', null),
-         fbMsngr.buildBubble('Burbuja 2','https://el-bot-de-alex.herokuapp.com/', 'http://lorempixel.com/400/200/', 'imagen 2 desde lorem pixel', null)
+         fbMsngr.buildBubble('Ciudades','https://el-bot-de-alex.herokuapp.com/', 'http://lorempixel.com/400/200/', 'Ciudades desde lorem pixel', null),
+         fbMsngr.buildBubble('Gatos','https://el-bot-de-alex.herokuapp.com/', 'http://lorempixel.com/400/200/cats', 'Gatos desde lorem pixel', null)
       ];
       fbMsngr.sendGenericTemplateMessage(uid, bubbles, function(err, id, mid){
             console.log('mensaje de burbuja enviado '+ textSend);
       });
    }else{
       fbMsngr.getProfile(uid, function(err, first_name, last_name, profile_pic) {
-         var textSend = 'Hola '+ first_name +', no entiendo tu mensaje, por favor intenta enviando \n hola \n iamgen \n burbuja :D';
+         var textSend = 'Hola '+ first_name +', no entiendo tu mensaje, por favor intenta enviando \n hola \n imagen \n tarjeta \n :D';
          fbMsngr.sendTextMessage(uid, textSend, function(err, id, mid){
                console.log('mensaje enviado '+ textSend);
          });
