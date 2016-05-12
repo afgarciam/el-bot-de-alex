@@ -26,7 +26,7 @@ fbMsngr.onTextReceived(function(uid, text) {
       });
    }else if(text === "IMAGEN"){
       fbMsngr.sendImageMessage(uid,'http://lorempixel.com/400/200/',function(err, id, mid){
-            console.log('mensaje  de imagen enviado '+ textSend);
+            console.log('mensaje  de imagen enviado ');
       });
    }else if(text === "TARJETA"){
       var bubbles = [
@@ -34,13 +34,13 @@ fbMsngr.onTextReceived(function(uid, text) {
          fbMsngr.buildBubble('Gatos','https://el-bot-de-alex.herokuapp.com/', 'http://lorempixel.com/400/200/cats', 'Gatos desde lorem pixel', null)
       ];
       fbMsngr.sendGenericTemplateMessage(uid, bubbles, function(err, id, mid){
-            console.log('mensaje de burbuja enviado '+ textSend);
+            console.log('mensaje de burbuja enviado ');
       });
    }else{
       fbMsngr.getProfile(uid, function(err, first_name, last_name, profile_pic) {
          var textSend = 'Hola '+ first_name +', no entiendo tu mensaje, por favor intenta enviando \n hola \n imagen \n tarjeta \n :D';
          fbMsngr.sendTextMessage(uid, textSend, function(err, id, mid){
-               console.log('mensaje enviado '+ textSend);
+               console.log('mensaje enviado ');
          });
       });
    }
