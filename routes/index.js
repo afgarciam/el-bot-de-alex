@@ -42,12 +42,12 @@ fbMsngr.onTextReceived(function(uid, text) {
             console.log('mensaje de burbuja enviado ');
          });
    } else if (text === "DATOS") {
-      // var buttons = [
-      //    fbMsngr.buildURLButton('a', 'https://el-bot-de-alex.herokuapp.com/')
-      //    // fbMsngr.buildURLButton('b', 'https://el-bot-de-alex.herokuapp.com/'),
-      //    // fbMsngr.buildURLButton('c', 'https://el-bot-de-alex.herokuapp.com/')
-      // ];
-      fbMsngr.sendButtonTemplateMessage(uid, null, function(err, id, mid) {
+      var buttons = [
+         fbMsngr.buildURLButton('a', 'https://el-bot-de-alex.herokuapp.com/'),
+         fbMsngr.buildURLButton('b', 'https://el-bot-de-alex.herokuapp.com/'),
+         fbMsngr.buildURLButton('c', 'https://el-bot-de-alex.herokuapp.com/')
+      ];
+      fbMsngr.sendButtonTemplateMessage(uid, buttons, function(err, id, mid) {
              console.log('mensaje de encuesta enviado ');
       });
       // fbMsngr.sendGenericTemplateMessage(
@@ -75,9 +75,9 @@ fbMsngr.onDelivered(function(id, mid) {
    console.log('mensaje entregado');
 });
 
-// fbMsngr.onPostback(function(id, postback) {
-// 	console.log('se tiene postback '+ postback);
-// });
+fbMsngr.onPostback(function(id, postback) {
+	console.log('se tiene postback '+ postback);
+});
 
 //Handle verification with the build in middleware
 router.get('/webhook/', fbMsngr.verify('La verificacion fallo'));
