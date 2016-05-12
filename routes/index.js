@@ -30,7 +30,7 @@ fbMsngr.onTextReceived(function(uid, text) {
       });
    }else if(text === "TARJETA"){
       var bubbles = [
-         fbMsngr.buildBubble('Ciudades','https://el-bot-de-alex.herokuapp.com/', 'http://lorempixel.com/400/200/', 'Ciudades desde lorem pixel', null),
+         fbMsngr.buildBubble('Ciudades','https://el-bot-de-alex.herokuapp.com/', 'http://lorempixel.com/400/200/city', 'Ciudades desde lorem pixel', null),
          fbMsngr.buildBubble('Gatos','https://el-bot-de-alex.herokuapp.com/', 'http://lorempixel.com/400/200/cats', 'Gatos desde lorem pixel', null)
       ];
       fbMsngr.sendGenericTemplateMessage(uid, bubbles, function(err, id, mid){
