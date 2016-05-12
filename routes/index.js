@@ -55,9 +55,9 @@ fbMsngr.onDelivered(function(id, mid) {
 	console.log('mensaje entregado');
 });
 
-fbMsngr.onPostback(function(id, postback) {
-	console.log('se tiene postback '+ postback);
-});
+// fbMsngr.onPostback(function(id, postback) {
+// 	console.log('se tiene postback '+ postback);
+// });
 
 //Handle verification with the build in middleware
 router.get('/webhook/', fbMsngr.verify('La verificacion fallo'));
