@@ -43,9 +43,9 @@ fbMsngr.onTextReceived(function(uid, text) {
          });
    } else if (text === "DATOS") {
       var buttons = [
-         fbMsngr.buildURLButton('a', 'https://el-bot-de-alex.herokuapp.com/'),
-         fbMsngr.buildURLButton('b', 'https://el-bot-de-alex.herokuapp.com/'),
-         fbMsngr.buildURLButton('c', 'https://el-bot-de-alex.herokuapp.com/')
+         fbMsngr.buildURLButton('a', 'https://el-bot-de-alex.herokuapp.com/')
+         // fbMsngr.buildURLButton('b', 'https://el-bot-de-alex.herokuapp.com/'),
+         // fbMsngr.buildURLButton('c', 'https://el-bot-de-alex.herokuapp.com/')
       ];
       fbMsngr.sendButtonTemplateMessage(uid, buttons, function(err, id, mid) {
              console.log('mensaje de encuesta enviado ');
