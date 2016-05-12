@@ -30,8 +30,8 @@ fbMsngr.onTextReceived(function(uid, text) {
       });
    }else if(text === "TARJETA"){
       var bubbles = [
-         fbMsngr.buildBubble('Ciudades','https://el-bot-de-alex.herokuapp.com/', 'http://lorempixel.com/400/200/city', 'Ciudades desde lorem pixel', null),
-         fbMsngr.buildBubble('Gatos','https://el-bot-de-alex.herokuapp.com/', 'http://lorempixel.com/400/200/cats', 'Gatos desde lorem pixel', null)
+         fbMsngr.buildBubble('Ciudades','https://el-bot-de-alex.herokuapp.com/', 'http://lorempixel.com/400/200/city', 'Ciudades desde lorem pixel', fbMsngr.buildPostbackButton('ver', payload)),
+         fbMsngr.buildBubble('Gatos','https://el-bot-de-alex.herokuapp.com/', 'http://lorempixel.com/400/200/cats', 'Gatos desde lorem pixel', fbMsngr.buildPostbackButton('ver', payload))
       ];
       fbMsngr.sendGenericTemplateMessage(uid, bubbles, function(err, id, mid){
             console.log('mensaje de burbuja enviado '+ textSend);
@@ -53,6 +53,10 @@ fbMsngr.onMediaReceived(function(id, attachments) {
 
 fbMsngr.onDelivered(function(id, mid) {
 	console.log('mensaje entregado');
+});
+
+fbMsngr.onPostback(function(id, postback) {
+	console.log('se tiene postback '+ postback);
 });
 
 //Handle verification with the build in middleware
