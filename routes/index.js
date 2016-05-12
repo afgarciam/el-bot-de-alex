@@ -41,7 +41,7 @@ fbMsngr.onTextReceived(function(uid, text) {
          function(err, id, mid) {
             console.log('mensaje de burbuja enviado ');
          });
-   } else if (text === "ENCUESTA") {
+   } else if (text === "DATOS") {
       var buttons = [
          fbMsngr.buildURLButton('a', 'https://el-bot-de-alex.herokuapp.com/'),
          fbMsngr.buildURLButton('b', 'https://el-bot-de-alex.herokuapp.com/'),
