@@ -42,16 +42,16 @@ fbMsngr.onTextReceived(function(uid, text) {
             console.log('mensaje de burbuja enviado ');
          });
    } else if (text === "ENCUESTA") {
-      // var buttons = [
-      //    fbMsngr.buildURLButton('a', 'https://el-bot-de-alex.herokuapp.com/'),
-      //    fbMsngr.buildURLButton('b', 'https://el-bot-de-alex.herokuapp.com/'),
-      //    fbMsngr.buildURLButton('c', 'https://el-bot-de-alex.herokuapp.com/')
-      // ];
-      var buttons =[
-         fbMsngr.buildPostbackButton('a', post1),
-         fbMsngr.buildPostbackButton('b', post2),
-         fbMsngr.buildPostbackButton('c', post3)
+      var buttons = [
+         fbMsngr.buildURLButton('a', 'https://el-bot-de-alex.herokuapp.com/'),
+         fbMsngr.buildURLButton('b', 'https://google.com/'),
+         fbMsngr.buildURLButton('c', 'https://twitter.com/')
       ];
+      // var buttons =[
+      //    fbMsngr.buildPostbackButton('a', post1),
+      //    fbMsngr.buildPostbackButton('b', post2),
+      //    fbMsngr.buildPostbackButton('c', post3)
+      // ];
       fbMsngr.sendGenericTemplateMessage(
          uid,
          [fbMsngr.buildBubble('Matematica', null, null, 'Cuantos es 3 * 20 \n a) 90 \n b) 60 \n c) 85', buttons)],
