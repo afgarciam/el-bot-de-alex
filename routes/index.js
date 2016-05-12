@@ -42,10 +42,15 @@ fbMsngr.onTextReceived(function(uid, text) {
             console.log('mensaje de burbuja enviado ');
          });
    } else if (text === "ENCUESTA") {
-      var buttons = [
-         fbMsngr.buildURLButton('a', 'https://el-bot-de-alex.herokuapp.com/'),
-         fbMsngr.buildURLButton('b', 'https://el-bot-de-alex.herokuapp.com/'),
-         fbMsngr.buildURLButton('c', 'https://el-bot-de-alex.herokuapp.com/')
+      // var buttons = [
+      //    fbMsngr.buildURLButton('a', 'https://el-bot-de-alex.herokuapp.com/'),
+      //    fbMsngr.buildURLButton('b', 'https://el-bot-de-alex.herokuapp.com/'),
+      //    fbMsngr.buildURLButton('c', 'https://el-bot-de-alex.herokuapp.com/')
+      // ];
+      var buttons =[
+         fbMsngr.buildPostbackButton('a', payload),
+         fbMsngr.buildPostbackButton('b', payload),
+         fbMsngr.buildPostbackButton('c', payload)
       ];
       fbMsngr.sendGenericTemplateMessage(
          uid,
