@@ -16,21 +16,19 @@ var fbMsngr = require('fb-msngr')({
 //Handle the receipt of text messages
 fbMsngr.onTextReceived(function(uid, text) {
 	console.log('text ' + text + ' - id '+ uid);
-
-   if(text.trim().toUpperCase() == "HOLA"){
+   text = text.trim().toUpperCase();
+   if( text === "HOLA"){
       fbMsngr.getProfile(uid, function(err, first_name, last_name, profile_pic) {
          var textSend = 'Hola '+ first_name +' '+ last_name +'!';
          fbMsngr.sendTextMessage(uid, textSend, function(err, id, mid){
                console.log('mensaje enviado '+ textSend);
          });
       });
+   }else if(text === "IMAGEN"){
+      fbMsngr.sendImageMessage(uid,'http://lorempixel.com/400/200/',function(err, id, mid){
+            console.log('mensaje  de imagen enviado '+ textSend);
+      });
    }
-   // fbMsngr.sendTextMessage(uid, text, function(err, id, mid){
-   //    console.log('mensaje enviado');
-   // });
-   // fbMsngr.getProfile(uid, function(err, first_name, last_name, profile_pic) {
-	//      console.log('name '+ first_name + ' ' + last_name + ' pic '+profile_pic);
-   // });
 });
 
 fbMsngr.onMediaReceived(function(id, attachments) {
