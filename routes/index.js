@@ -48,9 +48,9 @@ fbMsngr.onTextReceived(function(uid, text) {
       //    fbMsngr.buildURLButton('c', 'https://el-bot-de-alex.herokuapp.com/')
       // ];
       var buttons =[
-         fbMsngr.buildPostbackButton('a', payload),
-         fbMsngr.buildPostbackButton('b', payload),
-         fbMsngr.buildPostbackButton('c', payload)
+         fbMsngr.buildPostbackButton('a', post1),
+         fbMsngr.buildPostbackButton('b', post2),
+         fbMsngr.buildPostbackButton('c', post3)
       ];
       fbMsngr.sendGenericTemplateMessage(
          uid,
