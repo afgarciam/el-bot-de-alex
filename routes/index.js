@@ -47,12 +47,15 @@ fbMsngr.onTextReceived(function(uid, text) {
          fbMsngr.buildURLButton('b', 'https://el-bot-de-alex.herokuapp.com/'),
          fbMsngr.buildURLButton('c', 'https://el-bot-de-alex.herokuapp.com/')
       ];
-      fbMsngr.sendGenericTemplateMessage(
-         uid,
-         fbMsngr.buildBubble('Matematica', null, null, 'Cuantos es 3 * 20 \n a) 90 \n b) 60 \n c) 85', buttons),
-         function(err, id, mid) {
-            console.log('mensaje de encuesta enviado ');
-         });
+      fbMsngr.sendButtonTemplateMessage(id, buttons, function(err, id, mid) {
+             console.log('mensaje de encuesta enviado ');
+      });
+      // fbMsngr.sendGenericTemplateMessage(
+      //    uid,
+      //    fbMsngr.buildBubble('Matematica', null, null, 'Elige una opcion', buttons),
+      //    function(err, id, mid) {
+      //       console.log('mensaje de encuesta enviado ');
+      //    });
    } else {
       fbMsngr.getProfile(uid, function(err, first_name, last_name, profile_pic) {
          var textSend = 'Hola ' + first_name + ', no entiendo tu mensaje, por favor intenta enviando una de las siguientes palabras: \n Hola \n Imagen \n Tarjeta \n Encuesta \n :D';
